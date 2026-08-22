@@ -1,0 +1,120 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://raw.githubusercontent.com/Votega/ga-legislation/main/ga-bills.schema.json",
+ "title": "Georgia Bills",
+ "description": "Bills and resolutions from the Georgia General Assembly (Open States), enriched with party vote tallies where available.",
+ "type": "object",
+ "required": [
+  "metadata",
+  "bills"
+ ],
+ "properties": {
+  "metadata": {
+   "type": "object"
+  },
+  "bills": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "identifier",
+     "title"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Open States OCD bill id."
+     },
+     "identifier": {
+      "type": "string",
+      "description": "e.g. 'HB 1', 'SB 264'."
+     },
+     "billType": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "e.g. bill, resolution."
+     },
+     "chamber": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "lower",
+       "upper",
+       null
+      ],
+      "description": "'lower' = House, 'upper' = Senate."
+     },
+     "title": {
+      "type": "string"
+     },
+     "abstract": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "status": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "statusDate": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "subjects": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "sponsors": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string"
+        },
+        "primary": {
+         "type": "boolean"
+        }
+       }
+      }
+     },
+     "billUrl": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "textUrl": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "passageVotes": {
+      "type": "array"
+     },
+     "governorAction": {
+      "type": [
+       "object",
+       "string",
+       "null"
+      ]
+     }
+    },
+    "additionalProperties": true
+   }
+  }
+ }
+}
