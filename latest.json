@@ -2,8 +2,8 @@
  "biennium": "2025-2026",
  "currentSession": "2026-ss",
  "activeSession": "2026_ss",
- "generatedAt": "2026-08-16T07:55:07.132687+00:00",
- "billCount": 5480,
+ "generatedAt": "2026-08-22T21:35:46.667103+00:00",
+ "billCount": 5656,
  "sessions": [
   {
    "id": "2025_26",
@@ -22,7 +22,7 @@
    "id": "2026_ss",
    "name": "2026 Special Session",
    "slug": "2026-ss",
-   "billCount": 0,
+   "billCount": 176,
    "files": {
     "bills": "sessions/2026-ss/bills.json",
     "billsCsv": "sessions/2026-ss/bills.csv",
