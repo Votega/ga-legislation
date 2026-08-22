@@ -1,0 +1,13 @@
+{
+ "currentSession": "2025-2026",
+ "sessionName": "2025-2026 Regular Session",
+ "generatedAt": "2026-08-16T07:55:07.132687+00:00",
+ "billCount": 5480,
+ "files": {
+  "bills": "sessions/2025-2026/bills.json",
+  "billsCsv": "sessions/2025-2026/bills.csv",
+  "schema": "sessions/2025-2026/bills.schema.json",
+  "summary": "sessions/2025-2026/BILLS.md",
+  "subjects": "sessions/2025-2026/bills-subjects.json"
+ }
+}
