@@ -1,6 +1,6 @@
 # ga-legislation
 
-Georgia legislative data for the 2025–2026 General Assembly session, published by [VoteGA.org](https://votega.org).
+Georgia legislative data for the 2025–2026 General Assembly, published by [VoteGA.org](https://votega.org). A General Assembly is a two-year *biennium* made up of a regular session plus any special sessions the Governor convenes; each of the biennium's sessions is archived separately (see below).
 
 Files are updated automatically whenever the source data changes in the [votega.org](https://github.com/Votega/votega.org) repository.
 
@@ -10,22 +10,22 @@ Files are updated automatically whenever the source data changes in the [votega.
 
 Pick the format that fits how you work — the CSV and Markdown files are flattened views of the same data in the JSON.
 
-**Bills** — archived by legislative session under `sessions/<YYYY-YYYY>/`
+**Bills** — archived by session under `sessions/<slug>/`
 
-Georgia's General Assembly runs in two-year sessions. Each session's bills live in their own folder and are never overwritten when a new session begins, so this repo is a growing archive. `latest.json` at the root always points to the current session.
+Each session in the biennium gets its own folder, never overwritten when another session begins, so this repo is a growing archive. Slugs: the **regular** session collapses to its biennium span (`2025-2026`); a **special** session keeps its identifier (`2026-ss`). `latest.json` at the root names the biennium, the session currently in progress, and every session's files.
 
 | File | Format | Best for |
 |------|--------|----------|
-| `latest.json` | JSON | **Start here** — names the current session and the paths to its files |
-| `sessions/<YYYY-YYYY>/bills.json` | JSON | Developers — full records (sponsors, votes, links) |
-| `sessions/<YYYY-YYYY>/bills.csv` | CSV | **Spreadsheets** — one row per bill |
-| `sessions/<YYYY-YYYY>/bills.schema.json` | JSON Schema | Validating / typing `bills.json` |
-| `sessions/<YYYY-YYYY>/BILLS.md` | Markdown | **Reading** — counts by chamber, status, type, and top subjects |
-| `sessions/<YYYY-YYYY>/bills-subjects.json` | JSON | Manual subject-tag overrides applied during processing |
+| `latest.json` | JSON | **Start here** — the biennium, `currentSession`, and a `sessions[]` list with each session's file paths |
+| `sessions/<slug>/bills.json` | JSON | Developers — full records (sponsors, votes, links) scoped to that session |
+| `sessions/<slug>/bills.csv` | CSV | **Spreadsheets** — one row per bill |
+| `sessions/<slug>/bills.schema.json` | JSON Schema | Validating / typing `bills.json` |
+| `sessions/<slug>/BILLS.md` | Markdown | **Reading** — counts by chamber, status, type, and top subjects |
+| `sessions/<slug>/bills-subjects.json` | JSON | Manual subject-tag overrides applied during processing |
 
-Current session: **2025-2026** → [`sessions/2025-2026/`](sessions/2025-2026/).
+Sessions in the current biennium: **2025-2026** (regular) → [`sessions/2025-2026/`](sessions/2025-2026/) and **2026-ss** (2026 special session) → [`sessions/2026-ss/`](sessions/2026-ss/). Resolve them from `latest.json`'s `sessions[]` rather than hard-coding a slug; `currentSession` names the one in progress.
 
-> **Moved:** bills were previously flat files at the repo root (`ga-bills.json`, …). They now live under `sessions/<YYYY-YYYY>/`; read `latest.json` to resolve the current session's paths.
+> **Moved:** bills were previously flat files at the repo root (`ga-bills.json`, …). They now live under `sessions/<slug>/`; read `latest.json` to resolve each session's paths.
 
 **Ballot measures**
 
@@ -55,7 +55,8 @@ Current cycle: **2026** → [`ballot-measures/2026/`](ballot-measures/2026/).
     "generatedAt": "2026-05-01T12:00:00+00:00",
     "session": "2025_26",
     "sessionName": "2025-2026 Regular Session",
-    "source": "Open States (bulk export — May 2026)",
+    "biennium": "2025-2026",
+    "source": "Open States API",
     "totalBills": 4200
   },
   "bills": [ ... ]
@@ -68,6 +69,7 @@ Current cycle: **2026** → [`ballot-measures/2026/`](ballot-measures/2026/).
 |-------|------|-------------|
 | `id` | string | Open States bill ID (e.g. `ocd-bill/...`) |
 | `identifier` | string | Bill number (e.g. `HB 123`, `SB 45`) |
+| `session` | string | Session id this bill belongs to (`"2025_26"` regular, `"2026_ss"` special). Within a `sessions/<slug>/bills.json` every bill shares one session. |
 | `billType` | string | `"bill"`, `"resolution"`, `"joint resolution"`, etc. |
 | `chamber` | string | `"lower"` (House) or `"upper"` (Senate) |
 | `title` | string | Full bill title |
@@ -126,7 +128,7 @@ A maintainer-controlled file that overrides or adds subject tags for specific bi
 
 Files in this repo are pushed automatically from [Votega/votega.org](https://github.com/Votega/votega.org) via a GitHub Actions workflow (`.github/workflows/publish-ga-bills-to-ga-legislation.yml`). The workflow runs whenever `ga-bills.json` or `ga-bills-subjects.json` changes on the `main` branch, and can also be triggered manually.
 
-Source data comes from [Open States](https://openstates.org/) and is processed by `scripts/process_ga_bills.py` in the votega.org repo.
+Source data comes from [Open States](https://openstates.org/), fetched by `scripts/generate_ga_bills_data.py` and split per session into this repo by `scripts/publish_ga_bills.py` in the votega.org repo.
 
 ---
 
@@ -135,4 +137,4 @@ Source data comes from [Open States](https://openstates.org/) and is processed b
 - **`actions` are omitted.** The full action history is not included to keep the file size manageable. `status` and `statusDate` reflect the last action only.
 - **Individual voter arrays are omitted.** `passageVotes` contains only aggregate yea/nay/other counts. Per-member vote records are in `ga-member-votes.json` in the votega.org repo, keyed by OCD person ID.
 - **`abstract` may be empty.** Not all bills have an abstract in the Open States data.
-- This dataset covers the **2025–2026 Regular Session** only.
+- This dataset covers the **2025–2026 General Assembly** — the regular session and the 2026 special session, each in its own `sessions/<slug>/` folder.
