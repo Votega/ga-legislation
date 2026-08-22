@@ -10,15 +10,22 @@ Files are updated automatically whenever the source data changes in the [votega.
 
 Pick the format that fits how you work — the CSV and Markdown files are flattened views of the same data in the JSON.
 
-**Bills**
+**Bills** — archived by legislative session under `sessions/<YYYY-YYYY>/`
+
+Georgia's General Assembly runs in two-year sessions. Each session's bills live in their own folder and are never overwritten when a new session begins, so this repo is a growing archive. `latest.json` at the root always points to the current session.
 
 | File | Format | Best for |
 |------|--------|----------|
-| `ga-bills.json` | JSON | Developers — full records (sponsors, votes, links) |
-| `ga-bills.csv` | CSV | **Spreadsheets** — one row per bill |
-| `ga-bills.schema.json` | JSON Schema | Validating / typing `ga-bills.json` |
-| [`BILLS.md`](BILLS.md) | Markdown | **Reading** — counts by chamber, status, type, and top subjects |
-| `ga-bills-subjects.json` | JSON | Manual subject-tag overrides applied during processing |
+| `latest.json` | JSON | **Start here** — names the current session and the paths to its files |
+| `sessions/<YYYY-YYYY>/bills.json` | JSON | Developers — full records (sponsors, votes, links) |
+| `sessions/<YYYY-YYYY>/bills.csv` | CSV | **Spreadsheets** — one row per bill |
+| `sessions/<YYYY-YYYY>/bills.schema.json` | JSON Schema | Validating / typing `bills.json` |
+| `sessions/<YYYY-YYYY>/BILLS.md` | Markdown | **Reading** — counts by chamber, status, type, and top subjects |
+| `sessions/<YYYY-YYYY>/bills-subjects.json` | JSON | Manual subject-tag overrides applied during processing |
+
+Current session: **2025-2026** → [`sessions/2025-2026/`](sessions/2025-2026/).
+
+> **Moved:** bills were previously flat files at the repo root (`ga-bills.json`, …). They now live under `sessions/<YYYY-YYYY>/`; read `latest.json` to resolve the current session's paths.
 
 **Ballot measures**
 
