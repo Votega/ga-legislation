@@ -1,13 +1,35 @@
 {
- "currentSession": "2025-2026",
- "sessionName": "2025-2026 Regular Session",
+ "biennium": "2025-2026",
+ "currentSession": "2026-ss",
+ "activeSession": "2026_ss",
  "generatedAt": "2026-08-16T07:55:07.132687+00:00",
  "billCount": 5480,
- "files": {
-  "bills": "sessions/2025-2026/bills.json",
-  "billsCsv": "sessions/2025-2026/bills.csv",
-  "schema": "sessions/2025-2026/bills.schema.json",
-  "summary": "sessions/2025-2026/BILLS.md",
-  "subjects": "sessions/2025-2026/bills-subjects.json"
- }
+ "sessions": [
+  {
+   "id": "2025_26",
+   "name": "2025-2026 Regular Session",
+   "slug": "2025-2026",
+   "billCount": 5480,
+   "files": {
+    "bills": "sessions/2025-2026/bills.json",
+    "billsCsv": "sessions/2025-2026/bills.csv",
+    "schema": "sessions/2025-2026/bills.schema.json",
+    "summary": "sessions/2025-2026/BILLS.md",
+    "subjects": "sessions/2025-2026/bills-subjects.json"
+   }
+  },
+  {
+   "id": "2026_ss",
+   "name": "2026 Special Session",
+   "slug": "2026-ss",
+   "billCount": 0,
+   "files": {
+    "bills": "sessions/2026-ss/bills.json",
+    "billsCsv": "sessions/2026-ss/bills.csv",
+    "schema": "sessions/2026-ss/bills.schema.json",
+    "summary": "sessions/2026-ss/BILLS.md",
+    "subjects": "sessions/2026-ss/bills-subjects.json"
+   }
+  }
+ ]
 }
