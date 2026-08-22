@@ -1,0 +1,92 @@
+{
+ "metadata": {
+  "generatedAt": "2026-07-15",
+  "election": "November 3, 2026 General Election",
+  "electionDate": "2026-11-03",
+  "source": "Georgia Secretary of State; Georgia General Assembly (legis.ga.gov)",
+  "note": "Curated manually; conforms to ga-ballot-measures.schema.json. Lifecycle: 'potential' (passed the General Assembly, not yet certified) → 'certified' (on the ballot) → 'passed'/'failed' (terminal outcome recorded after results are certified). Measures are retained across cycles as a historical record and are never deleted; consumers select the focal election by electionDate and archive past-cycle measures from active display without altering the data.",
+  "schemaVersion": "1.0.0",
+  "certifiedCount": 3,
+  "potentialCount": 1,
+  "cycle": "2026",
+  "count": 4
+ },
+ "measures": [
+  {
+   "id": "ga-2026-ng911-fund",
+   "status": "certified",
+   "type": "Constitutional Amendment",
+   "title": "Authorize Creation of Next Generation 9-1-1 Fund Amendment",
+   "subjects": [
+    "Restricted-use funds"
+   ],
+   "summary": "Allow the state legislature to create and dedicate revenue to a fund titled the Georgia Next Generation 9-1-1 Fund.",
+   "electionDate": "2026-11-03",
+   "fullText": null,
+   "enablingLegislation": {
+    "identifier": "HR 1243",
+    "title": "Georgia Next Generation 9-1-1 Fund; authorize creation - CA",
+    "url": "https://www.legis.ga.gov/legislation/72891"
+   },
+   "results": null
+  },
+  {
+   "id": "ga-2026-conservation-acreage",
+   "status": "certified",
+   "type": "Constitutional Amendment",
+   "title": "Increase Acre Limit for Agriculture and Timber Conservation Use Property Tax Classification Amendment",
+   "subjects": [
+    "Agriculture",
+    "Forestry",
+    "Tax exemptions"
+   ],
+   "summary": "Increase the maximum acreage of agricultural and timber property that can be classified as bona fide conservation use property, which is taxed at 40% of the land's value, from 2,000 acres to 4,000 acres.",
+   "electionDate": "2026-11-03",
+   "fullText": null,
+   "enablingLegislation": {
+    "identifier": "HR 32",
+    "title": "General Assembly; increase maximum acreage to qualify for assessment and taxation as bona fide conservation use property - CA",
+    "url": "https://www.legis.ga.gov/legislation/69433"
+   },
+   "results": null
+  },
+  {
+   "id": "ga-2026-nonpartisan-probate",
+   "status": "certified",
+   "type": "Constitutional Amendment",
+   "title": "Require Nonpartisan Elections for Probate Judges Amendment",
+   "subjects": [
+    "Judiciary"
+   ],
+   "summary": "Require that probate judges be elected on a nonpartisan basis.",
+   "electionDate": "2026-11-03",
+   "fullText": null,
+   "enablingLegislation": {
+    "identifier": "HR 251",
+    "title": "Local government; probate judges shall be elected in nonpartisan elections; provide - CA",
+    "url": "https://www.legis.ga.gov/legislation/70279"
+   },
+   "results": null
+  },
+  {
+   "id": "ga-2026-disabled-veteran-homestead",
+   "status": "potential",
+   "type": "Statewide Referendum",
+   "title": "Georgia Homestead Exemption for Surviving Spouses and Children of Disabled Veterans Measure",
+   "subjects": [
+    "Homestead tax",
+    "Veterans"
+   ],
+   "summary": "Extend the homestead property tax exemption to the surviving spouses and minor children of disabled veterans.",
+   "statusNote": "Passed the House in March 2025 and the Senate in April 2026. The Governor must sign the bill for it to be referred to the ballot.",
+   "electionDate": "2026-11-03",
+   "fullText": null,
+   "enablingLegislation": {
+    "identifier": "HB 52",
+    "title": "Georgia Homestead Exemption for Surviving Spouses and Children of Disabled Veterans",
+    "url": "https://www.legis.ga.gov/legislation/69349"
+   },
+   "results": null
+  }
+ ]
+}
