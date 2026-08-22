@@ -8,10 +8,28 @@ Files are updated automatically whenever the source data changes in the [votega.
 
 ## Files
 
-| File | Description |
-|------|-------------|
-| `ga-bills.json` | All bills and resolutions introduced in the 2025–2026 session |
-| `ga-bills-subjects.json` | Manual subject-tag overrides applied during processing |
+Pick the format that fits how you work — the CSV and Markdown files are flattened views of the same data in the JSON.
+
+**Bills**
+
+| File | Format | Best for |
+|------|--------|----------|
+| `ga-bills.json` | JSON | Developers — full records (sponsors, votes, links) |
+| `ga-bills.csv` | CSV | **Spreadsheets** — one row per bill |
+| `ga-bills.schema.json` | JSON Schema | Validating / typing `ga-bills.json` |
+| [`BILLS.md`](BILLS.md) | Markdown | **Reading** — counts by chamber, status, type, and top subjects |
+| `ga-bills-subjects.json` | JSON | Manual subject-tag overrides applied during processing |
+
+**Ballot measures**
+
+| File | Format | Best for |
+|------|--------|----------|
+| `ga-ballot-measures.json` | JSON | Developers — full measure records |
+| `ga-ballot-measures.csv` | CSV | Spreadsheets — one row per measure |
+| `ga-ballot-measures.schema.json` | JSON Schema | Validating / typing the measures file |
+| [`BALLOT-MEASURES.md`](BALLOT-MEASURES.md) | Markdown | **Reading** — a table of what's on the ballot |
+
+`ga-bills.chamber` is `"lower"` (House) or `"upper"` (Senate) in the JSON; the CSV maps these to `House`/`Senate`.
 
 ---
 
