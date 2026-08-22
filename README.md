@@ -29,12 +29,17 @@ Current session: **2025-2026** → [`sessions/2025-2026/`](sessions/2025-2026/).
 
 **Ballot measures**
 
+Unlike bills, the measures file is a **single cross-cycle archive** — it spans every election and is never partitioned or deleted; consumers filter by `electionDate`. The root files below are canonical; the `ballot-measures/<year>/` folders are convenience views (filtered slices of the same data) for browsing one cycle at a time.
+
 | File | Format | Best for |
 |------|--------|----------|
-| `ga-ballot-measures.json` | JSON | Developers — full measure records |
-| `ga-ballot-measures.csv` | CSV | Spreadsheets — one row per measure |
+| `ga-ballot-measures.json` | JSON | Developers — **all cycles**, full records |
+| `ga-ballot-measures.csv` | CSV | Spreadsheets — all cycles, one row per measure |
 | `ga-ballot-measures.schema.json` | JSON Schema | Validating / typing the measures file |
-| [`BALLOT-MEASURES.md`](BALLOT-MEASURES.md) | Markdown | **Reading** — a table of what's on the ballot |
+| [`BALLOT-MEASURES.md`](BALLOT-MEASURES.md) | Markdown | **Reading** — all cycles, grouped by election date |
+| `ballot-measures/<year>/measures.json` · `.csv` · `.md` | JSON/CSV/MD | **One cycle at a time** — filtered views of the above |
+
+Current cycle: **2026** → [`ballot-measures/2026/`](ballot-measures/2026/).
 
 `ga-bills.chamber` is `"lower"` (House) or `"upper"` (Senate) in the JSON; the CSV maps these to `House`/`Senate`.
 
