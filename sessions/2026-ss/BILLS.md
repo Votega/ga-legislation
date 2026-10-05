@@ -1,7 +1,7 @@
 # Georgia Bills
 
 _Auto-generated from [votega.org](https://votega.org) — do not edit by hand._  
-_Last updated 2026-10-04T13:23:55.517497+00:00 · 176 bills · 2026 Special Session._
+_Last updated 2026-10-05T00:07:25.006229+00:00 · 176 bills · 2026 Special Session._
 
 > Full data in this session folder: [`bills.json`](bills.json) (richest — sponsors, votes, links) or [`bills.csv`](bills.csv) (one row per bill, for spreadsheets).
 
@@ -33,16 +33,13 @@ _Last updated 2026-10-04T13:23:55.517497+00:00 · 176 bills · 2026 Special Sess
 | Senate Tabled | 3 |
 | Senate Read and Referred | 2 |
 | House Immediately Transmitted to Senate | 1 |
-| Effective Date | 1 |
+| Senate Date Signed by Governor | 1 |
 
 ## Top subjects
 
 | Subject | Bills |
 |---|---|
-| Local / Municipal | 91 |
-| REVENUE AND TAXATION | 9 |
-| GENERAL ASSEMBLY | 8 |
-| PUBLIC OFFICERS AND EMPLOYEES | 3 |
-| PUBLIC UTILITIES AND TRANSPORTATION | 1 |
+| REVENUE AND TAXATION | 99 |
+| Local / Municipal | 1 |
 | ELECTIONS | 1 |
 
