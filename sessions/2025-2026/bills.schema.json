@@ -2,7 +2,7 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://raw.githubusercontent.com/Votega/ga-legislation/main/ga-bills.schema.json",
  "title": "Georgia Bills",
- "description": "Bills and resolutions from the Georgia General Assembly (Open States), enriched with party vote tallies where available.",
+ "description": "Bills and resolutions from the Georgia General Assembly, sourced from its own web service at legis.ga.gov (topical subject tags originate from Open States), enriched with party vote tallies where available.",
  "type": "object",
  "required": [
   "metadata",
@@ -24,7 +24,7 @@
     "properties": {
      "id": {
       "type": "string",
-      "description": "Open States OCD bill id."
+      "description": "Bill id in the form \"gga-bill/<legislationId>\", where legislationId is the legis.ga.gov id used in billUrl."
      },
      "identifier": {
       "type": "string",
