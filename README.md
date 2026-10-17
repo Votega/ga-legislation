@@ -138,3 +138,6 @@ Source data comes from [Open States](https://openstates.org/), fetched by `scrip
 - **Individual voter arrays are omitted.** `passageVotes` contains only aggregate yea/nay/other counts. Per-member vote records are in `ga-member-votes.json` in the votega.org repo, keyed by OCD person ID.
 - **`abstract` may be empty.** Not all bills have an abstract in the Open States data.
 - This dataset covers the **2025–2026 General Assembly** — the regular session and the 2026 special session, each in its own `sessions/<slug>/` folder.
+
+## License
+[CC-BY-SA 4.0](https://github.com/Votega/ga-legislation?tab=CC-BY-SA-4.0-1-ov-file)
