@@ -1,0 +1,84 @@
+{
+ "manifestSchemaVersion": "1.0.0",
+ "dataset": "bills",
+ "title": "Georgia General Assembly bills",
+ "description": "Every bill of the biennium with its sponsors, subjects, status and roll-call votes, plus archived past sessions.",
+ "repo": "Votega/ga-legislation",
+ "publisher": "VoteGA.org",
+ "generatedAt": "2026-11-01T14:29:21.061616+00:00",
+ "publishedAt": "2026-11-02T02:21:20Z",
+ "updateCadence": "Weekly while the General Assembly is in session.",
+ "schemaVersion": null,
+ "rowCount": 5656,
+ "source": "the Georgia General Assembly (legis.ga.gov), the Georgia Secretary of State, and the Open States API (Plural Policy) for topical subject tags",
+ "license": {
+  "name": "Creative Commons Attribution-ShareAlike 4.0 International",
+  "spdx": "CC-BY-SA-4.0",
+  "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+ },
+ "files": [
+  {
+   "path": "latest.json",
+   "description": "Biennium pointer: the session in progress and the archive.",
+   "bytes": 929
+  },
+  {
+   "path": "sessions/2025-2026/BILLS.md",
+   "description": "",
+   "bytes": 1751
+  },
+  {
+   "path": "sessions/2025-2026/bills-subjects.json",
+   "description": "",
+   "bytes": 5167
+  },
+  {
+   "path": "sessions/2025-2026/bills.csv",
+   "description": "",
+   "bytes": 1207927
+  },
+  {
+   "path": "sessions/2025-2026/bills.json",
+   "description": "",
+   "bytes": 6906600
+  },
+  {
+   "path": "sessions/2025-2026/bills.schema.json",
+   "description": "",
+   "bytes": 2309
+  },
+  {
+   "path": "sessions/2026-ss/BILLS.md",
+   "description": "",
+   "bytes": 1048
+  },
+  {
+   "path": "sessions/2026-ss/bills-subjects.json",
+   "description": "",
+   "bytes": 5167
+  },
+  {
+   "path": "sessions/2026-ss/bills.csv",
+   "description": "",
+   "bytes": 37719
+  },
+  {
+   "path": "sessions/2026-ss/bills.json",
+   "description": "",
+   "bytes": 260302
+  },
+  {
+   "path": "sessions/2026-ss/bills.schema.json",
+   "description": "",
+   "bytes": 2309
+  }
+ ],
+ "coverage": {
+  "biennium": "2025-2026",
+  "activeSession": "2026-ss",
+  "sessions": [
+   "2025-2026",
+   "2026-ss"
+  ]
+ }
+}
