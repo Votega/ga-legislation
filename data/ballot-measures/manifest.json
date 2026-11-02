@@ -1,0 +1,62 @@
+{
+ "manifestSchemaVersion": "1.0.0",
+ "dataset": "ballot-measures",
+ "title": "Georgia ballot measures",
+ "description": "Every statewide constitutional amendment and statewide referendum put to Georgia voters, with its ballot question, cycle and outcome.",
+ "repo": "Votega/ga-legislation",
+ "publisher": "VoteGA.org",
+ "generatedAt": "2026-10-16",
+ "publishedAt": "2026-11-02T02:21:17Z",
+ "updateCadence": "As the General Assembly refers measures and results are certified.",
+ "schemaVersion": null,
+ "rowCount": 4,
+ "source": "the Georgia General Assembly (legis.ga.gov), the Georgia Secretary of State, and the Open States API (Plural Policy) for topical subject tags",
+ "license": {
+  "name": "Creative Commons Attribution-ShareAlike 4.0 International",
+  "spdx": "CC-BY-SA-4.0",
+  "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+ },
+ "files": [
+  {
+   "path": "BALLOT-MEASURES.md",
+   "description": "",
+   "bytes": 1541
+  },
+  {
+   "path": "ballot-measures/2026/measures.csv",
+   "description": "",
+   "bytes": 1474
+  },
+  {
+   "path": "ballot-measures/2026/measures.json",
+   "description": "",
+   "bytes": 10238
+  },
+  {
+   "path": "ballot-measures/2026/measures.md",
+   "description": "",
+   "bytes": 1510
+  },
+  {
+   "path": "ga-ballot-measures.csv",
+   "description": "",
+   "bytes": 1474
+  },
+  {
+   "path": "ga-ballot-measures.json",
+   "description": "",
+   "bytes": 10187
+  },
+  {
+   "path": "ga-ballot-measures.schema.json",
+   "description": "",
+   "bytes": 11996
+  }
+ ],
+ "coverage": {
+  "cycles": [
+   "2026"
+  ],
+  "measures": 4
+ }
+}
