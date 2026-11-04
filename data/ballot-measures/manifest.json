@@ -29,7 +29,7 @@
   {
    "path": "ballot-measures/2026/measures.json",
    "description": "",
-   "bytes": 10238
+   "bytes": 10934
   },
   {
    "path": "ballot-measures/2026/measures.md",
@@ -44,12 +44,12 @@
   {
    "path": "ga-ballot-measures.json",
    "description": "",
-   "bytes": 10187
+   "bytes": 10973
   },
   {
    "path": "ga-ballot-measures.schema.json",
    "description": "",
-   "bytes": 11996
+   "bytes": 13382
   }
  ],
  "coverage": {
