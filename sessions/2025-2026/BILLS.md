@@ -1,7 +1,7 @@
 # Georgia Bills
 
 _Auto-generated from [votega.org](https://votega.org) — do not edit by hand._  
-_Last updated 2026-11-15T14:57:38.047977+00:00 · 5480 bills · 2025-2026 Regular Session._
+_Last updated 2026-11-22T15:35:59.312488+00:00 · 5480 bills · 2025-2026 Regular Session._
 
 > Full data in this session folder: [`bills.json`](bills.json) (richest — sponsors, votes, links) or [`bills.csv`](bills.csv) (one row per bill, for spreadsheets).
 
