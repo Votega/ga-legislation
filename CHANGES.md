@@ -12,7 +12,7 @@ Changes to this repo's files that a consumer may need to act on. Routine data re
 
 A roll call now passes only with a majority of the chamber's seats, 91 of 180 in the House and 29 of 56 in the Senate (Ga. Const. Art. III, Sec. V, Para. V). Two kinds of measure need two-thirds of the members elected, 120 / 38: a resolution proposing a constitutional amendment (Art. X, Sec. I, Para. II), and a local act granting or changing a property-tax (homestead) exemption (Art. VII, Sec. II, Para. II(a); legis.ga.gov records every such act below 120 / 38 as lost). Before, `result` was `Pass` whenever yeas outnumbered nays, and the two-thirds rule was applied only to 2025-2026 amendments. Each vote below was published as `Pass`. legis.ga.gov's status history records it as lost ("Third Reading Lost", "Senate Lost"), or the chamber took it again the same day and the re-vote passed. Only `passageVotes[].result` changed.
 
-Changed file: `sessions/2025-2026/bills.json` (and `bills.csv` where it carries the result). Bills from earlier General Assemblies are not published here.
+Changed files: `sessions/2025-2026/bills.json` and `sessions/2026-ss/bills.json` (`bills.csv` carries no vote results). Bills from earlier General Assemblies are not published here.
 
 | Bills | Chamber | Date | Tally | `result` now |
 |---|---|---|---|---|
