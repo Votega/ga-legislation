@@ -90,6 +90,31 @@
        }
       }
      },
+     "secondChamberSponsor": {
+      "type": [
+       "object",
+       "null"
+      ],
+      "description": "The member sponsoring the measure in the other chamber (a senator for a House measure, or the reverse). Not part of sponsors[]. null when the legislature lists none.",
+      "properties": {
+       "name": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "legisGaGovId": {
+        "type": "integer"
+       },
+       "chamber": {
+        "type": "string",
+        "enum": [
+         "lower",
+         "upper"
+        ]
+       }
+      }
+     },
      "billUrl": {
       "type": [
        "string",

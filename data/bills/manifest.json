@@ -34,7 +34,7 @@
   {
    "path": "sessions/2025-2026/bills.csv",
    "description": "",
-   "bytes": 1207927
+   "bytes": 1213428
   },
   {
    "path": "sessions/2025-2026/bills.json",
@@ -44,7 +44,7 @@
   {
    "path": "sessions/2025-2026/bills.schema.json",
    "description": "",
-   "bytes": 2309
+   "bytes": 2893
   },
   {
    "path": "sessions/2026-ss/BILLS.md",
@@ -59,7 +59,7 @@
   {
    "path": "sessions/2026-ss/bills.csv",
    "description": "",
-   "bytes": 37719
+   "bytes": 37916
   },
   {
    "path": "sessions/2026-ss/bills.json",
@@ -69,7 +69,7 @@
   {
    "path": "sessions/2026-ss/bills.schema.json",
    "description": "",
-   "bytes": 2309
+   "bytes": 2893
   }
  ],
  "coverage": {
