@@ -16,14 +16,14 @@ Each session in the biennium gets its own folder, never overwritten when another
 
 | File | Format | Best for |
 |------|--------|----------|
-| `latest.json` | JSON | **Start here** — the biennium, `currentSession`, and a `sessions[]` list with each session's file paths |
+| `latest.json` | JSON | **Start here** — the biennium, `currentSession`, a `sessions[]` list with each session's file paths, and `earlierBienniums[]`: every earlier General Assembly held here, newest first |
 | `sessions/<slug>/bills.json` | JSON | Developers — full records (sponsors, votes, links) scoped to that session |
 | `sessions/<slug>/bills.csv` | CSV | **Spreadsheets** — one row per bill |
 | `sessions/<slug>/bills.schema.json` | JSON Schema | Validating / typing `bills.json` |
 | `sessions/<slug>/BILLS.md` | Markdown | **Reading** — counts by chamber, status, type, and top subjects |
 | `sessions/<slug>/bills-subjects.json` | JSON | Manual subject-tag corrections applied during processing |
 
-Resolve sessions from `latest.json`'s `sessions[]` rather than hard-coding a slug; `currentSession` names the one in progress.
+Resolve sessions from `latest.json`'s `sessions[]` rather than hard-coding a slug; `currentSession` names the one in progress. Earlier General Assemblies are under `earlierBienniums[]`, each with its sessions' files (empty until the first rollover, in January 2027). Bill numbers restart every General Assembly, so `HB 1` in 2025-2026 and `HB 1` in 2027-2028 are different bills: key on the session and the bill number together.
 
 > **Moved:** bills were previously flat files at the repo root (`ga-bills.json`, …). They now live under `sessions/<slug>/`; read `latest.json` to resolve each session's paths.
 
@@ -67,6 +67,14 @@ Subject tags are VoteGA's own classification, not an official legis.ga.gov field
 Files in this repo are pushed automatically from [Votega/votega.org](https://github.com/Votega/votega.org) and overwritten on each publish, so please don't edit them by hand. To report a problem, open an issue here.
 
 ---
+
+## Linking to this data
+
+- **A fixed session:** link `sessions/<slug>/` (for example `sessions/2025-2026/bills.json`). Those folders are never moved or rewritten once the session is over.
+- **Whatever is current:** read `latest.json`. Its `biennium`, `currentSession` and `sessions[]` change when a new General Assembly is seated; the next time is **Monday, 11 January 2027**, when they name 2027-2028 and the 2025-2026 sessions move to `earlierBienniums[]`.
+- **An exact copy:** link a commit (`https://raw.githubusercontent.com/Votega/ga-legislation/<commit>/...`).
+
+Changes that affect consumers are listed in [`CHANGES.md`](CHANGES.md).
 
 ## License
 [CC-BY-SA 4.0](https://github.com/Votega/ga-legislation?tab=CC-BY-SA-4.0-1-ov-file)
