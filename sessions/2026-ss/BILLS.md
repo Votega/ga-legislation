@@ -1,7 +1,7 @@
 # Georgia Bills
 
 _Auto-generated from [votega.org](https://votega.org) — do not edit by hand._  
-_Last updated 2026-11-22T15:35:59.312488+00:00 · 176 bills · 2026 Special Session._
+_Last updated 2026-11-26T19:27:21.196452+00:00 · 176 bills · 2026 Special Session._
 
 > Full data in this session folder: [`bills.json`](bills.json) (richest — sponsors, votes, links) or [`bills.csv`](bills.csv) (one row per bill, for spreadsheets).
 
@@ -42,4 +42,5 @@ _Last updated 2026-11-22T15:35:59.312488+00:00 · 176 bills · 2026 Special Sess
 | REVENUE AND TAXATION | 99 |
 | Local / Municipal | 1 |
 | ELECTIONS | 1 |
+| GENERAL ASSEMBLY | 1 |
 
