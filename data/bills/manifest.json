@@ -5,7 +5,7 @@
  "description": "Every bill of the biennium with its sponsors, subjects, status and roll-call votes, plus archived past sessions.",
  "repo": "Votega/ga-legislation",
  "publisher": "VoteGA.org",
- "generatedAt": "2026-11-22T15:35:59.312488+00:00",
+ "generatedAt": "2026-11-26T19:27:21.196452+00:00",
  "updateCadence": "Weekly while the General Assembly is in session.",
  "schemaVersion": null,
  "rowCount": 5656,
@@ -34,12 +34,12 @@
   {
    "path": "sessions/2025-2026/bills.csv",
    "description": "",
-   "bytes": 1213428
+   "bytes": 1221512
   },
   {
    "path": "sessions/2025-2026/bills.json",
    "description": "",
-   "bytes": 6906600
+   "bytes": 7096630
   },
   {
    "path": "sessions/2025-2026/bills.schema.json",
@@ -49,7 +49,7 @@
   {
    "path": "sessions/2026-ss/BILLS.md",
    "description": "",
-   "bytes": 1048
+   "bytes": 1073
   },
   {
    "path": "sessions/2026-ss/bills-subjects.json",
@@ -59,12 +59,12 @@
   {
    "path": "sessions/2026-ss/bills.csv",
    "description": "",
-   "bytes": 37916
+   "bytes": 37943
   },
   {
    "path": "sessions/2026-ss/bills.json",
    "description": "",
-   "bytes": 260302
+   "bytes": 265326
   },
   {
    "path": "sessions/2026-ss/bills.schema.json",
