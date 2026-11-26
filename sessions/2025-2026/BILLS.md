@@ -1,7 +1,7 @@
 # Georgia Bills
 
 _Auto-generated from [votega.org](https://votega.org) — do not edit by hand._  
-_Last updated 2026-11-22T15:35:59.312488+00:00 · 5480 bills · 2025-2026 Regular Session._
+_Last updated 2026-11-26T19:27:21.196452+00:00 · 5480 bills · 2025-2026 Regular Session._
 
 > Full data in this session folder: [`bills.json`](bills.json) (richest — sponsors, votes, links) or [`bills.csv`](bills.csv) (one row per bill, for spreadsheets).
 
@@ -45,22 +45,22 @@ _Last updated 2026-11-22T15:35:59.312488+00:00 · 5480 bills · 2025-2026 Regula
 |---|---|
 | Local / Municipal | 499 |
 | EDUCATION | 336 |
-| REVENUE AND TAXATION | 297 |
+| REVENUE AND TAXATION | 299 |
 | HEALTH | 255 |
-| GENERAL ASSEMBLY | 189 |
+| GENERAL ASSEMBLY | 191 |
 | CRIMES AND OFFENSES (CRIMINAL CODE) | 180 |
-| LOCAL GOVERNMENT | 153 |
-| STATE GOVERNMENT | 151 |
+| LOCAL GOVERNMENT | 154 |
+| STATE GOVERNMENT | 153 |
 | PROPERTY | 132 |
 | HIGHWAYS, BRIDGES, AND FERRIES | 131 |
 | INSURANCE | 127 |
 | MOTOR VEHICLES AND TRAFFIC | 120 |
 | PROFESSIONS AND BUSINESSES | 111 |
 | COURTS | 99 |
-| PUBLIC OFFICERS AND EMPLOYEES | 95 |
+| PUBLIC OFFICERS AND EMPLOYEES | 96 |
 | LAW ENFORCEMENT OFFICERS AND AGENCIES | 85 |
 | ELECTIONS | 70 |
-| COMMERCE AND TRADE | 67 |
+| COMMERCE AND TRADE | 68 |
 | SOCIAL SERVICES | 64 |
-| CRIMINAL PROCEDURE | 61 |
+| CRIMINAL PROCEDURE | 62 |
 
