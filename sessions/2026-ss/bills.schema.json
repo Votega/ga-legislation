@@ -1,8 +1,8 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://raw.githubusercontent.com/Votega/ga-legislation/main/sessions/2026-ss/bills.schema.json",
- "schemaVersion": "1.2.0",
- "schemaStability": "Stable field names and meanings. 1.1.0 describes fields added in 2026-11, all optional and absent from files published before then: legislationType, footnotes, committees, committeeHistory, statusHistory, stage, passageVotes[].time and passageVotes[].linkedBy on each bill, and metadata.legislativeCalendar. Nothing new is `required`, so older copies still validate. `status` is legis.ga.gov's latest action, not an outcome (a vetoed bill's reads 'Date Signed by Governor'): read governorAction or stage for the outcome. committeeHistory records moves seen between publisher runs from the 2027 session on; it is empty before then. 1.2.0 adds governorStatements (the Governor's veto message or signing statement, word for word, from the Governor's published documents) and governorAction.vetoNumber, both optional.",
+ "schemaVersion": "1.3.0",
+ "schemaStability": "Stable field names and meanings. 1.1.0 describes fields added in 2026-11, all optional and absent from files published before then: legislationType, footnotes, committees, committeeHistory, statusHistory, stage, passageVotes[].time and passageVotes[].linkedBy on each bill, and metadata.legislativeCalendar. Nothing new is `required`, so older copies still validate. `status` is legis.ga.gov's latest action, not an outcome (a vetoed bill's reads 'Date Signed by Governor'): read governorAction or stage for the outcome. committeeHistory records moves seen between publisher runs from the 2027 session on; it is empty before then. 1.2.0 adds governorStatements (the Governor's veto message or signing statement, word for word, from the Governor's published documents) and governorAction.vetoNumber, both optional. 1.3.0 adds committees[].chair (the committee's chair in the current biennium, joined on the committee id; optional, absent on bills of other bienniums) and new stage readings: Postponed, a loss undone by reconsideration (no longer 'lost'), and Recommitted.",
  "title": "Georgia Bills",
  "description": "Bills and resolutions from the Georgia General Assembly, sourced from its own web service at legis.ga.gov (topical subject tags originate from Open States), enriched with party vote tallies where available.",
  "type": "object",
@@ -331,6 +331,24 @@
           "string",
           "null"
          ]
+        },
+        "chair": {
+         "type": "object",
+         "description": "The committee's chair in the current biennium (legis.ga.gov member records, joined on the committee id). Absent when no sitting member chairs it, and on bills of other bienniums.",
+         "properties": {
+          "name": {
+           "type": "string"
+          },
+          "legisGaGovId": {
+           "type": "integer"
+          },
+          "party": {
+           "type": [
+            "string",
+            "null"
+           ]
+          }
+         }
         }
        }
       },
@@ -373,6 +391,24 @@
             "string",
             "null"
            ]
+          },
+          "chair": {
+           "type": "object",
+           "description": "The committee's chair in the current biennium (legis.ga.gov member records, joined on the committee id). Absent when no sitting member chairs it, and on bills of other bienniums.",
+           "properties": {
+            "name": {
+             "type": "string"
+            },
+            "legisGaGovId": {
+             "type": "integer"
+            },
+            "party": {
+             "type": [
+              "string",
+              "null"
+             ]
+            }
+           }
           }
          }
         },
@@ -401,6 +437,24 @@
             "string",
             "null"
            ]
+          },
+          "chair": {
+           "type": "object",
+           "description": "The committee's chair in the current biennium (legis.ga.gov member records, joined on the committee id). Absent when no sitting member chairs it, and on bills of other bienniums.",
+           "properties": {
+            "name": {
+             "type": "string"
+            },
+            "legisGaGovId": {
+             "type": "integer"
+            },
+            "party": {
+             "type": [
+              "string",
+              "null"
+             ]
+            }
+           }
           }
          }
         },
