@@ -6,7 +6,7 @@
  "repo": "Votega/ga-legislation",
  "publisher": "VoteGA.org",
  "generatedAt": "2026-11-27T02:49:10.154474+00:00",
- "updateCadence": "Weekly while the General Assembly is in session.",
+ "updateCadence": "Daily January through April, while the General Assembly sits; weekly otherwise.",
  "schemaVersion": null,
  "rowCount": 5656,
  "source": "the Georgia General Assembly (legis.ga.gov), the Georgia Secretary of State, and the Open States API (Plural Policy) for topical subject tags",
@@ -34,17 +34,17 @@
   {
    "path": "sessions/2025-2026/bills.csv",
    "description": "",
-   "bytes": 1221512
+   "bytes": 1468458
   },
   {
    "path": "sessions/2025-2026/bills.json",
    "description": "",
-   "bytes": 10045525
+   "bytes": 10048413
   },
   {
    "path": "sessions/2025-2026/bills.schema.json",
    "description": "",
-   "bytes": 2893
+   "bytes": 10390
   },
   {
    "path": "sessions/2026-ss/BILLS.md",
@@ -59,17 +59,17 @@
   {
    "path": "sessions/2026-ss/bills.csv",
    "description": "",
-   "bytes": 37943
+   "bytes": 46645
   },
   {
    "path": "sessions/2026-ss/bills.json",
    "description": "",
-   "bytes": 366229
+   "bytes": 366443
   },
   {
    "path": "sessions/2026-ss/bills.schema.json",
    "description": "",
-   "bytes": 2893
+   "bytes": 10388
   }
  ],
  "coverage": {

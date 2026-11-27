@@ -1,6 +1,8 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
- "$id": "https://raw.githubusercontent.com/Votega/ga-legislation/main/ga-bills.schema.json",
+ "$id": "https://raw.githubusercontent.com/Votega/ga-legislation/main/sessions/2025-2026/bills.schema.json",
+ "schemaVersion": "1.1.0",
+ "schemaStability": "Stable field names and meanings. 1.1.0 describes fields added in 2026-11, all optional and absent from files published before then: legislationType, footnotes, committees, committeeHistory, statusHistory, stage, passageVotes[].time and passageVotes[].linkedBy on each bill, and metadata.legislativeCalendar. Nothing new is `required`, so older copies still validate. `status` is legis.ga.gov's latest action, not an outcome (a vetoed bill's reads 'Date Signed by Governor'): read governorAction or stage for the outcome. committeeHistory records moves seen between publisher runs from the 2027 session on; it is empty before then.",
  "title": "Georgia Bills",
  "description": "Bills and resolutions from the Georgia General Assembly, sourced from its own web service at legis.ga.gov (topical subject tags originate from Open States), enriched with party vote tallies where available.",
  "type": "object",
@@ -10,7 +12,70 @@
  ],
  "properties": {
   "metadata": {
-   "type": "object"
+   "type": "object",
+   "properties": {
+    "session": {
+     "type": "string",
+     "description": "Session id, e.g. 2025_26, 2026_ss."
+    },
+    "sessionName": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "biennium": {
+     "type": "string",
+     "description": "e.g. 2025-2026."
+    },
+    "generatedAt": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "When the source file was generated (ISO 8601)."
+    },
+    "source": {
+     "type": "string"
+    },
+    "totalBills": {
+     "type": "integer"
+    },
+    "legislativeCalendar": {
+     "type": "object",
+     "description": "This session's legislative days per chamber, from legis.ga.gov GetSessionSchedule: {\"lower\": [[day, \"YYYY-MM-DD\"], ...], \"upper\": [...]}, by date. A regular session numbers days 1-40 in EACH year (day 28 = Crossover Day; day 40 of the second year = sine die); a special session 1-N.",
+     "properties": {
+      "lower": {
+       "type": "array",
+       "items": {
+        "type": "array",
+        "prefixItems": [
+         {
+          "type": "integer"
+         },
+         {
+          "type": "string"
+         }
+        ]
+       }
+      },
+      "upper": {
+       "type": "array",
+       "items": {
+        "type": "array",
+        "prefixItems": [
+         {
+          "type": "integer"
+         },
+         {
+          "type": "string"
+         }
+        ]
+       }
+      }
+     }
+    }
+   }
   },
   "bills": {
    "type": "array",
@@ -128,7 +193,52 @@
       ]
      },
      "passageVotes": {
-      "type": "array"
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "chamber": {
+         "type": "string",
+         "enum": [
+          "lower",
+          "upper"
+         ]
+        },
+        "date": {
+         "type": "string"
+        },
+        "time": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "HH:MM; orders same-day votes."
+        },
+        "result": {
+         "type": "string",
+         "description": "pass / fail under Georgia's constitutional thresholds, never yea > nay."
+        },
+        "motionText": {
+         "type": "string"
+        },
+        "yea": {
+         "type": "integer"
+        },
+        "nay": {
+         "type": "integer"
+        },
+        "other": {
+         "type": "integer"
+        },
+        "linkedBy": {
+         "type": "string",
+         "enum": [
+          "listing"
+         ],
+         "description": "Present when legis.ga.gov links the roll call to no bill and the link was read from the vote listing's text."
+        }
+       }
+      }
      },
      "governorAction": {
       "type": [
@@ -136,6 +246,202 @@
        "string",
        "null"
       ]
+     },
+     "legislationType": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "GEN",
+       "LOC",
+       "CA",
+       "PRIV",
+       "NP",
+       null
+      ],
+      "description": "legis.ga.gov's kind: general bill, local act, constitutional amendment, privileged or non-privileged resolution."
+     },
+     "footnotes": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "legis.ga.gov procedural notes, oldest first."
+     },
+     "committees": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "chamber": {
+         "type": "string",
+         "enum": [
+          "lower",
+          "upper"
+         ]
+        },
+        "id": {
+         "type": "integer",
+         "description": "legis.ga.gov committee id (GetCommitteesBySession)."
+        },
+        "code": {
+         "type": [
+          "string",
+          "null"
+         ]
+        },
+        "name": {
+         "type": [
+          "string",
+          "null"
+         ]
+        }
+       }
+      },
+      "description": "The committee holding the bill in each chamber now; legis.ga.gov overwrites it on a move."
+     },
+     "committeeHistory": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "chamber": {
+         "type": "string",
+         "enum": [
+          "lower",
+          "upper"
+         ]
+        },
+        "from": {
+         "type": "object",
+         "properties": {
+          "chamber": {
+           "type": "string",
+           "enum": [
+            "lower",
+            "upper"
+           ]
+          },
+          "id": {
+           "type": "integer",
+           "description": "legis.ga.gov committee id (GetCommitteesBySession)."
+          },
+          "code": {
+           "type": [
+            "string",
+            "null"
+           ]
+          },
+          "name": {
+           "type": [
+            "string",
+            "null"
+           ]
+          }
+         }
+        },
+        "to": {
+         "type": "object",
+         "properties": {
+          "chamber": {
+           "type": "string",
+           "enum": [
+            "lower",
+            "upper"
+           ]
+          },
+          "id": {
+           "type": "integer",
+           "description": "legis.ga.gov committee id (GetCommitteesBySession)."
+          },
+          "code": {
+           "type": [
+            "string",
+            "null"
+           ]
+          },
+          "name": {
+           "type": [
+            "string",
+            "null"
+           ]
+          }
+         }
+        },
+        "seenOn": {
+         "type": "string",
+         "description": "Day the publisher's run noticed the move, not the day of the move."
+        }
+       }
+      },
+      "description": "Committee moves, recorded from the 2027 session on."
+     },
+     "statusHistory": {
+      "type": "array",
+      "items": {
+       "type": "array"
+      },
+      "description": "[datetime, code(, AmSub)] for every action, oldest first; codes are legis.ga.gov's."
+     },
+     "stage": {
+      "type": [
+       "object",
+       "null"
+      ],
+      "description": "Where the bill is.",
+      "properties": {
+       "kind": {
+        "type": "string",
+        "enum": [
+         "signed",
+         "vetoed",
+         "governor",
+         "agreement",
+         "committee",
+         "died-committee",
+         "floor",
+         "died-floor",
+         "lost",
+         "adopted"
+        ]
+       },
+       "label": {
+        "type": "string",
+        "description": "e.g. 'Passed House · Died in Senate Finance'."
+       },
+       "path": {
+        "type": "string",
+        "enum": [
+         "full",
+         "short"
+        ],
+        "description": "full: origin committee, origin floor, other committee, other floor, final version, Governor. short: filed, adopted (a simple resolution)."
+       },
+       "steps": {
+        "type": "array",
+        "items": {
+         "type": "array",
+         "prefixItems": [
+          {
+           "type": "string",
+           "enum": [
+            "done",
+            "current",
+            "stopped",
+            "ahead"
+           ]
+          },
+          {
+           "type": "string"
+          },
+          {
+           "type": "string"
+          }
+         ]
+        }
+       }
+      }
      }
     },
     "additionalProperties": true
