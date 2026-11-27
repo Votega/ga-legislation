@@ -8,6 +8,15 @@ Changes to this repo's files that a consumer may need to act on. Routine data re
 - The 2025-2026 regular and 2026 special sessions move to `earlierBienniums[]`. Their folders, `sessions/2025-2026/` and `sessions/2026-ss/`, do not move.
 - Bill numbers start again at 1, so a bill number on its own no longer identifies a bill. Key on the session and the number.
 
+## November 2026: the Governor's veto messages and deadline; schema 1.2.0
+
+New, all optional:
+
+- `governorStatements` on a bill: the Governor's veto message or signing statement, word for word, from the Office of the Governor's yearly document, with `sourceUrl`. Added for 2025 (7 vetoes, 1 signing statement: SB 255) and 2026 (12 vetoes, 2 signing statements: HB 1247, SB 220), covering every vetoed bill in `sessions/2025-2026/`.
+- `governorAction.vetoNumber` on a vetoed bill (2026's Veto 1 is HB 14).
+- `stage.governorDeadline` while a bill waits on the Governor, and a `stage` of "Became law without the Governor's signature" once that deadline passes with no signature or veto on record. No 2025-2026 bill is affected: the Governor acted on every one.
+- `bills.schema.json` is `schemaVersion` `1.2.0` and describes `governorStatements` and `vetoNumber`. Nothing new is `required`.
+
 ## November 2026: bill stages, committees, calendar; schema 1.1.0
 
 New fields, all optional, so a reader that ignores them is unaffected. See the README's "Bill records" for what each means.
