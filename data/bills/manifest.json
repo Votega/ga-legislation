@@ -39,12 +39,12 @@
   {
    "path": "sessions/2025-2026/bills.json",
    "description": "",
-   "bytes": 10048413
+   "bytes": 10069112
   },
   {
    "path": "sessions/2025-2026/bills.schema.json",
    "description": "",
-   "bytes": 10390
+   "bytes": 11521
   },
   {
    "path": "sessions/2026-ss/BILLS.md",
@@ -69,7 +69,7 @@
   {
    "path": "sessions/2026-ss/bills.schema.json",
    "description": "",
-   "bytes": 10388
+   "bytes": 11519
   }
  ],
  "coverage": {
