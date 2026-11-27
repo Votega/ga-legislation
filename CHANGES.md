@@ -8,6 +8,16 @@ Changes to this repo's files that a consumer may need to act on. Routine data re
 - The 2025-2026 regular and 2026 special sessions move to `earlierBienniums[]`. Their folders, `sessions/2025-2026/` and `sessions/2026-ss/`, do not move.
 - Bill numbers start again at 1, so a bill number on its own no longer identifies a bill. Key on the session and the number.
 
+## 27 November 2026: committee chairs and stall reasons; schema 1.3.0
+
+- New optional field `committees[].chair` on each bill: `{name, legisGaGovId, party}`, the committee's chair in the current biennium. It is absent on other bienniums' bills.
+- Corrected `stage` values:
+  - A bill whose floor loss was undone by reconsideration and never voted on again now reads `kind` `died-floor`, "Died awaiting a House vote". It used to read `lost`. Example: 2025-2026 HB 1446.
+  - A bill lost again on reconsideration shows the later tally. Example: 2026-ss HB 10EX, 99–74.
+  - New label: "Postponed in the House".
+  - New committee-step detail: "Recommitted <date>".
+  - The committee step a bill is in, or died in, now names its chair.
+
 ## November 2026: the Governor's veto messages and deadline; schema 1.2.0
 
 New, all optional:
