@@ -8,6 +8,37 @@ Changes to this repo's files that a consumer may need to act on. Routine data re
 - The 2025-2026 regular and 2026 special sessions move to `earlierBienniums[]`. Their folders, `sessions/2025-2026/` and `sessions/2026-ss/`, do not move.
 - Bill numbers start again at 1, so a bill number on its own no longer identifies a bill. Key on the session and the number.
 
+## November 2026: bill stages, committees, calendar; schema 1.1.0
+
+New fields, all optional, so a reader that ignores them is unaffected. See the README's "Bill records" for what each means.
+
+- Each bill: `stage`, `committees`, `committeeHistory` (empty until the 2027 session), `statusHistory`, `legislationType`, `footnotes`; each `passageVotes[]` entry: `time`, and `linkedBy` where set.
+- Each session file's `metadata`: `legislativeCalendar`.
+- `bills.csv`: four columns appended at the end, `legislationType`, `stage`, `houseCommittee`, `senateCommittee`. Existing columns keep their positions.
+- `bills.schema.json` describes all of the above and now carries `schemaVersion` (`1.1.0`) and `schemaStability`. **Its `$id` changed**: each session's copy now names its own path (`.../sessions/2025-2026/bills.schema.json`). Every copy used to claim `.../ga-bills.schema.json`, a URL with no file. Nothing new is `required`, so older copies still validate.
+- `status` is unchanged, but note it is the latest action, not an outcome: a vetoed bill's reads "Date Signed by Governor". Use `governorAction` or `stage`.
+
+## November 2026: final votes added
+
+52 bill-votes from 9 roll calls were missing from `passageVotes[]`: their captions did not start with "Passage", "Agree to" or "Adopt", or legis.ga.gov linked the roll call to no bill. They are added. No existing vote changed.
+
+| Bills | Chamber | Date | Roll call | Tally | `result` |
+|---|---|---|---|---|---|
+| HB 86 | Senate | 2025-03-28 | Recede from Senate Amendment | 46-2 | `pass` |
+| 18 Senate resolutions (SR 216 … SR 489) | Senate | 2025-04-02 | Consent Calendar for Senate Study Committees | 52-0 | `pass` |
+| 12 House resolutions (HR 40 … HR 887) | House | 2025-04-04 | Uncontested House Resolutions | 166-0 | `pass` |
+| SB 234, SB 235, SB 336 | House | 2025-04-04 | SBs 234, 235, & 336 Passage | 147-2 | `pass` |
+| SR 684, SR 744 | Senate | 2026-02-24 | Consent Calendar Expressing the Will of the Senate | 51-0 | `pass` |
+| HB 973 | House | 2026-02-25 | Adopt CCR (conference report) | 169-2 | `pass` |
+| SR 480, SR 567 | Senate | 2026-02-26 | Consent Calendar Expressing the Will of the Senate | 48-0 | `pass` |
+| 12 Senate resolutions (SR 432 … SR 978) | Senate | 2026-03-31 | Consent Calendar for Senate Study Committees | 48-0 | `pass` |
+| HB 1192 | House | 2026-06-22 | Veto Override | 94-77 | `fail` |
+
+- **SB 234, SB 235, SB 336:** the 112-59 `fail` listed in the next entry stands. These bills lost that vote, the House reconsidered, and the 147-2 re-vote passed them.
+- **HB 1192:** a 2025-2026 bill, so its override vote is in `sessions/2025-2026/bills.json`, although the House took it in the 2026 special session. An override needs two-thirds, 120 in the House.
+
+Changed file: `sessions/2025-2026/bills.json` (all 52 are 2025-2026 bills; `bills.csv` carries no votes).
+
 ## November 2026: corrected vote results
 
 A roll call now passes only with a majority of the chamber's seats, 91 of 180 in the House and 29 of 56 in the Senate (Ga. Const. Art. III, Sec. V, Para. V). Two kinds of measure need two-thirds of the members elected, 120 / 38: a resolution proposing a constitutional amendment (Art. X, Sec. I, Para. II), and a local act granting or changing a property-tax (homestead) exemption (Art. VII, Sec. II, Para. II(a); legis.ga.gov records every such act below 120 / 38 as lost). Before, `result` was `Pass` whenever yeas outnumbered nays, and the two-thirds rule was applied only to 2025-2026 amendments. Each vote below was published as `Pass`. legis.ga.gov's status history records it as lost ("Third Reading Lost", "Senate Lost"), or the chamber took it again the same day and the re-vote passed. Only `passageVotes[].result` changed.

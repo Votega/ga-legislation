@@ -18,7 +18,7 @@ Each session in the biennium gets its own folder, never overwritten when another
 |------|--------|----------|
 | `latest.json` | JSON | **Start here** — the biennium, `currentSession`, a `sessions[]` list with each session's file paths, and `earlierBienniums[]`: every earlier General Assembly held here, newest first |
 | `sessions/<slug>/bills.json` | JSON | Developers — full records (sponsors, votes, links) scoped to that session |
-| `sessions/<slug>/bills.csv` | CSV | **Spreadsheets** — one row per bill |
+| `sessions/<slug>/bills.csv` | CSV | **Spreadsheets** — one row per bill, including where it ended up (`stage`) and its committees |
 | `sessions/<slug>/bills.schema.json` | JSON Schema | Validating / typing `bills.json` |
 | `sessions/<slug>/BILLS.md` | Markdown | **Reading** — counts by chamber, status, type, and top subjects |
 | `sessions/<slug>/bills-subjects.json` | JSON | Manual subject-tag corrections applied during processing |
@@ -41,18 +41,22 @@ Unlike bills, the measures file is a **single cross-cycle archive** — it spans
 
 Each cycle with measures has its own `ballot-measures/<year>/` folder.
 
-In the bills JSON, `chamber` is `"lower"` (House) or `"upper"` (Senate); the CSV maps these to `House`/`Senate`.
+In the bills JSON, `chamber` is `"lower"` (House) or `"upper"` (Senate); the CSV maps these to `House`/`Senate`. New CSV columns are only ever added at the end, so code that reads columns by position keeps working.
 
 ---
 
 ## Bill records
 
-Each `sessions/<slug>/bills.json` is `{ "metadata": {...}, "bills": [...] }`. The field list is defined by `bills.schema.json` in the same folder; `metadata` records where and when that file was generated (`source`, `generatedAt`, session, and bill count). This section only covers what the schema can't say.
+Each `sessions/<slug>/bills.json` is `{ "metadata": {...}, "bills": [...] }`. The field list is defined by `bills.schema.json` in the same folder (its `schemaVersion` says which fields it describes; its `$id` is its own path); `metadata` records where and when that file was generated (`source`, `generatedAt`, session, and bill count) and the session's legislative calendar. This section only covers what the schema can't say.
 
 - **`id`** is `gga-bill/<legislationId>`, where `legislationId` is the legis.ga.gov id that also appears in `billUrl`. The same number is also given in its own `legislationId` field.
-- **`status` / `statusDate`** describe the last recorded action only. The full action history is not included, to keep the file a manageable size.
+- **`status` / `statusDate`** are legis.ga.gov's latest recorded action, **not an outcome**: a vetoed bill's last action reads "Date Signed by Governor". For the outcome read `governorAction` or `stage`. Every action is in `statusHistory` (`[datetime, code]`, or `[datetime, code, AmSub]`, oldest first; the codes are legis.ga.gov's).
+- **`stage`** says where the bill is: a `label` ("Passed House · Died in Senate Finance"), a `kind` for filtering, and `steps` (origin committee, origin floor, other committee, other floor, final version, Governor; or filed and adopted for a simple resolution), each `done`, `current`, `stopped` or `ahead`. A bill counts as dead once its session is past the last day of its legislative calendar without reaching the Governor. In the CSV, `stage` is the label.
+- **`committees`** is the committee holding the bill in each chamber **now**. legis.ga.gov overwrites it when a bill is moved or recommitted, and keeps no record of the original referral. **`committeeHistory`** lists the moves VoteGA has seen between its runs, as `{chamber, from, to, seenOn}`; `seenOn` is the day a run noticed the move, not the day it happened. It is recorded from the 2027 session on and is empty before then.
+- **`legislationType`** is legis.ga.gov's own kind of measure: `GEN` (general bill), `LOC` (local act), `CA` (constitutional amendment), `PRIV` and `NP` (resolutions). **`footnotes`** are legis.ga.gov's procedural notes ("Modified Structured Rule", "Tabled in Senate").
 - **`sponsors[]`** carry `legisGaGovId`, which joins to the `legisGaGovId` field in [`ga-legislators`](https://github.com/Votega/ga-legislators).
-- **`passageVotes[]`** hold aggregate tallies per chamber (and per-party tallies where they could be computed), not individual voters. How each legislator voted is in `ga-legislators`, under `sessions/<slug>/votes.json`.
+- **`passageVotes[]`** hold aggregate tallies per chamber (and per-party tallies where they could be computed), not individual voters. How each legislator voted is in `ga-legislators`, under `sessions/<slug>/votes.json`. `result` follows Georgia's constitutional thresholds (a majority of the chamber's seats; two-thirds for constitutional amendments, local tax-exemption acts and veto overrides), never yeas over nays. `time` orders votes taken the same day. A vote with `linkedBy: "listing"` is one legis.ga.gov links to no bill; the bill was read from the roll call's own listing.
+- **`metadata.legislativeCalendar`** lists the session's legislative days per chamber, `{"lower": [[day, "YYYY-MM-DD"], ...], "upper": [...]}`. A regular session numbers its days 1–40 in each year (day 28 is Crossover Day; day 40 of the second year is sine die); a special session numbers them 1 to N.
 - **`governorAction`** is an object once the Governor has acted on the measure (status, dates, act number where one exists) and `null` otherwise.
 - **`abstract`** is the bill's own summary text, capped at 500 characters.
 
