@@ -5,7 +5,7 @@
  "description": "Every bill of the biennium with its sponsors, subjects, status and roll-call votes, plus archived past sessions.",
  "repo": "Votega/ga-legislation",
  "publisher": "VoteGA.org",
- "generatedAt": "2026-11-27T02:49:10.154474+00:00",
+ "generatedAt": "2026-11-27T13:43:43.586532+00:00",
  "updateCadence": "Daily January through April, while the General Assembly sits; weekly otherwise.",
  "schemaVersion": null,
  "rowCount": 5656,
